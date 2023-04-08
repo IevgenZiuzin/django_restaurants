@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col w-75 mx-auto mt-3">
+        <h2 class="text-center">{{ object.title }}</h2>
+        <img class="card-img-top" alt="restaurant {{ object.title }}" src="{{ object.image.url }}" style="width: 100%; display: block;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><small class="text-muted">Cuisine:</small> {{ object.cuisine }}</li>
+            <li class="list-group-item"><small class="text-muted">Address:</small> {{ object.address }}</li>
+            <li class="list-group-item"><small class="text-muted">Phone:</small> {{ object.phone }}</li>
+            <li class="list-group-item"><a href="{{ object.website }}">Web-site</a></li>
+        </ul>
+        <hr>
+        <h3>Story</h3>
+        <div>
+            {{ object.description|linebreaks }}
+        </div>
+        <hr>
+        <div class="mt-3">
+            {% if user.is_authenticated %}
+                <a class="btn btn-secondary" href="{% url 'restaurant_update' object.slug %}">Edit</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
