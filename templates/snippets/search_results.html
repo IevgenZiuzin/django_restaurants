@@ -1,2 +1,17 @@
-{% extends 'base.html' %}
-{% block content %}{% endblock %}
+<ul class="search-results dropdown-menu position-static d-grid gap-1 p-2 rounded-3 mx-0 shadow">
+    {% for restaurant in results %}
+        <li>
+            <a class="d-flex justify-content-between dropdown-item rounded-3" href="{% url 'restaurant_detail' restaurant.slug %}">
+                <div>
+                    <strong class="d-block">{{ restaurant.title }}</strong>
+                    <small>{{ restaurant.address }}</small>
+                </div>
+                <div class="">
+                    <img class="card-img-top float-end h-75" alt="restaurant {{ restaurant.title }}"
+                                                     src="{{ restaurant.image.url }}"
+                                                     style="max-width: 50px; display: block;">
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

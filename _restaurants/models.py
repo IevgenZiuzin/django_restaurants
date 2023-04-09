@@ -20,7 +20,7 @@ class Cuisine(models.Model):
 class Restaurant(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/', default=None)
-    cuisine = models.ForeignKey(Cuisine, on_delete=models.SET_NULL, null=True, blank=True)
+    cuisine = models.ForeignKey(Cuisine, on_delete=models.SET_NULL, null=True, blank=True, related_name='restaurants')
     description = models.TextField(null=True, blank=True)
     address = models.CharField(max_length=100)
     website = models.CharField(max_length=100, unique=True)

@@ -3,7 +3,7 @@ import json
 from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render, reverse, HttpResponse
-from django.template.loader import render_to_string
+from django.db.models import Q
 from django.urls import reverse_lazy
 
 from .models import Restaurant
@@ -54,13 +54,14 @@ class CuisineView(ListView):
 
 
 def search(request):
-    try:
-        search_data = json.load(request)
-        results = Restaurant.objects.filter(title__icontains=search_data)
-        html = render_to_string('search_results.html', {'results': results})
-        return HttpResponse(html)
-    except Exception:
-        return HttpResponse(status=500)
+        try:
+            search_data = json.load(request)
+            results = Restaurant.objects.filter(Q(title__icontains=search_data['value']) |
+                                                Q(cuisine__title__icontains=search_data['value']))
+            html = render(request, 'snippets/search_results.html', {'results': results})
+            return HttpResponse(html)
+        except Exception:
+            return HttpResponse(status=500)
 
 
 def page_not_found_error(request, exception):
