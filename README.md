@@ -1,3 +1,3 @@
-use moder account to CRUD items
-login: moder
-pass: modermoder
+<p>use moder account to CRUD items</p>
+<p>login: moder</p>
+<p>pass: modermoder</p>
