@@ -1,7 +1,8 @@
-.main-header{
+.main-header {
     position: relative;
 }
-#search-results{
+
+#search-results {
     position: absolute;
     top: 100%;
     width: 100%;

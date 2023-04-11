@@ -7,10 +7,10 @@
         <p class="card-text"></p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item"><small style="font-weight: 900;">&#10061; </small>{{ restaurant.address }}</li>
-        <li class="list-group-item"><small style="font-weight: 900;">&#9990; </small>+{{ restaurant.phone }}</li>
+        <li class="list-group-item"><small style="font-weight: 900;"><i class="fa fa-map-marker" aria-hidden="true"></i> </small>{{ restaurant.address }}</li>
+        <li class="list-group-item"><small style="font-weight: 900;"><i class="fa fa-mobile" aria-hidden="true"></i> </small>+{{ restaurant.phone }}</li>
     </ul>
     <div class="card-body">
-        <a href="{{ restaurant.get_absolute_url }}" class="card-link">Detail</a>
+        <a class="link-dark" href="{{ restaurant.get_absolute_url }}" class="card-link">Detail</a>
     </div>
 </div>

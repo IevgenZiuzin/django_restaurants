@@ -4,10 +4,10 @@
         <h2 class="text-center">{{ object.title }}</h2>
         <img class="card-img-top" alt="restaurant {{ object.title }}" src="{{ object.image.url }}" style="width: 100%; display: block;">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"><small class="text-muted">Cuisine:</small> {{ object.cuisine }}</li>
+            <li class="list-group-item"><small class="text-muted">Cuisine:</small> <a class="link-secondary" href="{{ object.cuisine.get_absolute_url }}">{{ object.cuisine }}</a></li>
             <li class="list-group-item"><small class="text-muted">Address:</small> {{ object.address }}</li>
             <li class="list-group-item"><small class="text-muted">Phone:</small> {{ object.phone }}</li>
-            <li class="list-group-item"><a href="{{ object.website }}">Web-site</a></li>
+            <li class="list-group-item"><a class="link-dark" href="{{ object.website }}">Web-site <i class="fa fa-external-link"></i></a></li>
         </ul>
         <hr>
         <h3>Story</h3>
