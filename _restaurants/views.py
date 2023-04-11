@@ -17,6 +17,7 @@ def index(request):
 class RestaurantListView(ListView):
     model = Restaurant
     paginate_by = 6
+    ordering = ['id']
 
 
 class RestaurantCreateView(LoginRequiredMixin, CreateView):
