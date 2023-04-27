@@ -1,4 +1,4 @@
-Just to show Jinja templates handling skills. Some JavaScript and decent practices of Django views.
+**Just to show Jinja templates handling skills. Some JavaScript and decent practices of Django views.**
 
 
 
